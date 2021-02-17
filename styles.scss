@@ -23,7 +23,7 @@ body {
   margin: 0 auto;
   font-family: "Spartan", sans-serif;
   display: grid;
-  grid-template-columns: 1fr 1fr 160px 1fr;
+  grid-template-columns: 1fr 1fr 160px 420px;
   grid-template-rows: 454px 80px 266px;
 }
 p {
@@ -33,10 +33,63 @@ p {
   letter-spacing: -0.02em;
   color: var(--dark-gray);
 }
+.mobile-nav {
+  position: absolute;
+  width: 100%;
+  height: 111px;
+  padding: 26px;
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .close {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+  nav {
+    position: relative;
+    ul {
+      display: flex;
+      list-style-type: none;
+      li {
+        margin-left: 32px;
+        a {
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: -0.04em;
+          color: var(--black);
+          text-decoration: none;
+          text-transform: lowercase;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: hsl(0, 0%, 0%);
+  opacity: 0.5;
+}
+
 .hero {
+  position: relative;
+  overflow: hidden;
+  .hamburger {
+    display: none;
+  }
   grid-column: 1 / 3;
   grid-row: 1 / 3;
-  background-image: url(./images/desktop-image-hero-1.jpg);
+  // background-image: url(./images/desktop-image-hero-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -64,6 +117,23 @@ p {
     }
   }
 }
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  left: -100%;
+  display: flex;
+  transition: .8s ease-out;
+  img {
+    display: block;
+    object-fit: cover;
+    width: calc(100% / 3);
+  }
+}
+
 .slides {
   grid-column: -1 / -3;
   grid-row: 1 / 2;
@@ -92,12 +162,37 @@ p {
 .slide-buttons {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
-  background: black;
+  background: var(--black);
+  position: relative;
+}
+
+.left-btn,
+.right-btn {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background: var(--very-dark-gray);
+  }
+}
+.left-btn {
+  left: 0;
+}
+.right-btn {
+  right: 0;
 }
 .dark-image {
   grid-column: 1 / 2;
   grid-row: 3 / 4;
   background-image: url(./images/image-about-dark.jpg);
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 .about {
   grid-column: 2 / 4;
@@ -116,6 +211,8 @@ p {
   grid-column: -1 / -2;
   grid-row: 3 / 4;
   background-image: url(./images/image-about-light.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 footer {
@@ -133,4 +230,8 @@ footer {
       color: hsl(228, 45%, 44%);
     }
   }
+}
+
+.hidden {
+  display: none;
 }

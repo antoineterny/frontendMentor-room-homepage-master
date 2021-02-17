@@ -15,9 +15,28 @@
     <title>Frontend Mentor | Room homepage</title>
 
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./responsive.css" />
   </head>
   <body>
+    <div class="overlay" style="display:none;" ></div>
+    <div class="mobile-nav" style="display:none;" >
+      <img class="close" src="./images/icon-close.svg" alt="close" />
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
     <header class="hero">
+      <div class="carousel">
+        <img src="./images/desktop-image-hero-3.jpg" alt="">
+        <img src="./images/desktop-image-hero-1.jpg" alt="">
+        <img src="./images/desktop-image-hero-2.jpg" alt="">
+      </div>
+      <img class="hamburger" src="./images/icon-hamburger.svg" alt="menu" />
       <h1 class="logo">room</h1>
       <nav>
         <ul>
@@ -29,7 +48,10 @@
       </nav>
     </header>
 
-    <div class="slide-buttons"></div>
+    <div class="slide-buttons">
+      <div class="left-btn"><img src="./images/icon-angle-left.svg" alt="left" /></div>
+      <div class="right-btn"><img src="./images/icon-angle-right.svg" alt="right" /></div>
+    </div>
 
     <div class="slides">
       <div class="slide-1">
@@ -78,11 +100,12 @@
     <div class="light-image"></div>
 
     <footer>
-    	<div class="attribution">
-    	  Challenge by
-    	  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    	  Coded by <a href="https://github.com/antoineterny/">Antoine Terny</a>.
-    	</div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/antoineterny/">Antoine Terny</a>.
+      </div>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>
